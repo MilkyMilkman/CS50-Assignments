@@ -1,0 +1,52 @@
+#include <cs50.h>
+#include <math.h>
+#include <stdio.h>
+
+int main(void)
+{
+    float change;
+    int coins_used = 0;
+
+    // Prompt user for amount of change in dollar
+    printf("Let's calculate your change!\n");
+    do
+    {
+        printf("Enter the amount of dollars: ");
+		scanf("%f", &change);
+    }while (change < 0);
+    
+
+
+    
+    change = round(change * 100);
+    printf("Change in cents: %.0f cents\n", change);
+
+    while (change >= 25)
+    {
+        coins_used++;
+        change = change - 25;
+    }
+    
+    while (change >= 10)
+    {
+        coins_used++;
+        change = change - 10;
+    }
+  
+    while (change >= 5)
+    {
+        coins_used++;
+        change = change - 5;
+    }
+ 
+    while (change >= 1)
+    {
+        coins_used++;
+        change = change - 1;
+    }
+
+   
+    printf("Min number of coins used to make change:\n");
+    printf("%d\n", coins_used);
+
+}
